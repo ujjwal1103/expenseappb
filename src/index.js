@@ -7,9 +7,12 @@ import dotenv from "dotenv";
 dotenv.config();
 const app = express();
 mongoose.set('strictQuery', false)
-app.use(cors({
-  origin:"https://expenseapp2.netlify.app/"
-}));
+const corsOptions ={
+    origin:'https://expenseapp2.netlify.app/', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
 
 
 
