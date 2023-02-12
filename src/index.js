@@ -7,7 +7,9 @@ import dotenv from "dotenv";
 dotenv.config();
 const app = express();
 mongoose.set('strictQuery', false)
-app.use(cors());
+app.use(cors({
+  origin:false
+}));
 app.use(express.json());
 app.use("/api/transactions", transactionRoutes);
 app.use("/api/auth", authRoutes);
