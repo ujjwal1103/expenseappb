@@ -8,7 +8,7 @@ dotenv.config();
 const app = express();
 mongoose.set('strictQuery', false)
 app.use(cors({
-  origin:false
+  origin:"https://expenseapp2.netlify.app/"
 }));
 app.use(express.json());
 app.use("/api/transactions", transactionRoutes);
