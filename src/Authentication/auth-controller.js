@@ -1,4 +1,4 @@
-import { db } from "../db/db.js";
+
 import bcrypt from "bcryptjs";
 import { User } from "./user.js";
 export const register = async (req, res) => {
