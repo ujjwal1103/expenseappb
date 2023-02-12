@@ -6,7 +6,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();
 const app = express();
-
+mongoose.set('strictQuery', false)
 app.use(cors());
 app.use(express.json());
 app.use("/api/transactions", transactionRoutes);
