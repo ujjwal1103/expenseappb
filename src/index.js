@@ -10,6 +10,15 @@ mongoose.set('strictQuery', false)
 app.use(cors({
   origin:"https://expenseapp2.netlify.app/"
 }));
+
+
+
+app.get('/cors', (req, res) => {
+  res.set('Access-Control-Allow-Origin', '*');
+  res.send({ "msg": "This has CORS enabled 🎈" })
+  })
+
+  
 app.use(express.json());
 app.use("/api/transactions", transactionRoutes);
 app.use("/api/auth", authRoutes);
