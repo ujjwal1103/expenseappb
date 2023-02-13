@@ -7,22 +7,19 @@ import dotenv from "dotenv";
 dotenv.config();
 const app = express();
 mongoose.set('strictQuery', false)
-const corsOptions ={
-    origin:'https://expenseapp2.netlify.app/', 
-    credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200
-}
-app.use(cors(corsOptions));
+
+app.use(cors());
 
 
 
-app.get('/cors', (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*")
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.setHeader("Access-Control-Max-Age", "1800");
-  res.setHeader("Access-Control-Allow-Headers", "content-type");
+app.use( (req, res,next) => {
+  res.header("Access-Control-Allow-Origin", "*")
+  
+  res.header("Access-Control-Allow-Headers", "Origin,X-Requested-With,Content-Type, Accept,Authorization");
   res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
+  next();
   })
+
 
   
 app.use(express.json());
